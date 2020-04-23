@@ -36,7 +36,7 @@ function extractFolder(folderToRead, folders = []) {
 {
     Promise.all(
         collectTestingFoldersWithPackage().map(async (folder) => {
-            return execa('yarn', {
+            return execa('arborist', ['.', '--legacy-peer-deps'], {
                 cwd: folder,
                 stdio: 'inherit',
             });
